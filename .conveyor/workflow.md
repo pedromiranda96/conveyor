@@ -30,7 +30,7 @@ Para iniciar um novo negócio, os artefatos de `.conveyor/artifacts/` são arqui
 | 1 | Briefing | `conveyor-briefing` | entradas do usuário, fontes públicas | `artifacts/brief.md` |
 | 2 | Identidade | `conveyor-identity` | `brief.md`, materiais visuais da marca | `artifacts/brand.md` |
 | 3 | Copywriting | `conveyor-copywriting` | `brief.md` (obrigatório), `brand.md` | `artifacts/copy.md` |
-| 4 | Design | `conveyor-design` (planejada) | `brief.md`, `brand.md`, `copy.md` | `artifacts/design.md` |
+| 4 | Design | `conveyor-design` | `brief.md`, `brand.md`, `copy.md` | `artifacts/design.md` |
 | 5 | Implementação | `conveyor-implementation` (planejada) | artefatos aprovados | código do site |
 
 - `brief.md` é a única fonte de fatos sobre o negócio. Só `conveyor-briefing` cria ou altera fontes (`SRC`) e fatos (`FACT`).
