@@ -17,7 +17,8 @@ Commands:
 
 Options:
   -y, --yes        Skip the reset confirmation prompt
-  --force          init: re-tag an existing baseline; sync: allow uncommitted changes
+  --force          init: allow a missing package.json or re-tag an existing baseline;
+                   sync: allow uncommitted changes
                    or a downgrade; reset: discard uncommitted and untracked files
   --no-install     reset: skip reinstalling dependencies
   -h, --help       Show this help

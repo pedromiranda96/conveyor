@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { lstat, mkdir, readdir, readlink, realpath, symlink, unlink } from "node:fs/promises";
 import { join, resolve } from "node:path";
-import { log } from "./log.js";
+import { CliError, log } from "./log.js";
 import { SKILLS_DIR } from "./template.js";
 
 const CLAUDE_SKILLS = ".claude/skills";
@@ -23,13 +23,17 @@ export function packageManager(root) {
   return null;
 }
 
-/** Warns about project prerequisites without changing anything. */
-export function checkProject(root) {
+/** Checks project prerequisites without changing anything. */
+export function checkProject(root, { force }) {
   let pkg;
   try {
     pkg = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
   } catch {
-    log.warn("No readable package.json here. Conveyor expects a scaffolded web project (Astro by default).");
+    const message =
+      "No readable package.json here. Scaffold the site first (for example `pnpm create astro@latest`), " +
+      "then run `conveyor init` from its root.";
+    if (!force) throw new CliError(`${message} Pass --force to continue anyway.`);
+    log.warn(message);
     return;
   }
   const deps = { ...pkg.dependencies, ...pkg.devDependencies };

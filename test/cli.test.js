@@ -65,6 +65,15 @@ describe("init", () => {
     assert.equal(git(dir, "status", "--porcelain"), "");
   });
 
+  test("refuses a folder without package.json unless forced", () => {
+    const dir = mkdtempSync(join(tmpdir(), "conveyor-test-"));
+    dirs.push(dir);
+    assert.match(run(dir, "init").stderr, /Scaffold the site first/);
+    assert.ok(!existsSync(join(dir, ".git")));
+    assert.equal(run(dir, "init", "--force").status, 0);
+    assert.ok(existsSync(join(dir, ".conveyor/workflow.md")));
+  });
+
   test("warns when Tailwind is missing", () => {
     const dir = project({ tailwind: false });
     const result = run(dir, "init");

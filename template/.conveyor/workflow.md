@@ -6,7 +6,7 @@ The `conveyor` CLI installs and updates the Conveyor skills, this file, and the 
 
 ## Stack
 
-Conveyor is framework-agnostic. Identify the framework, package manager, scripts, and conventions from the project, and follow its `AGENTS.md` and official documentation. New projects default to Astro; the brief records the stack and any reason for another choice. Tailwind CSS is required in every stack (see Styling and revisions). If it is missing, implementation adds it through the framework's official integration; that is not a stack replacement.
+Conveyor is framework-agnostic and runs in an already scaffolded project. Identify the framework, package manager, scripts, and conventions from the project, and follow its `AGENTS.md` and official documentation. Tailwind CSS is required in every stack (see Styling and revisions). If it is missing, implementation adds it through the framework's official integration; that is not a stack replacement.
 
 ## Inputs and outputs
 

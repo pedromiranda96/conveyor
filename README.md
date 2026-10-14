@@ -17,13 +17,13 @@ pnpm astro add tailwind
 npx github:pedromiranda96/conveyor init
 ```
 
-Astro is the default stack, but any framework works. Tailwind CSS is required; `init` warns when it is missing.
+We usually scaffold with Astro, but any framework works: the skills detect the stack from the project. Tailwind CSS is required; `init` warns when it is missing.
 
 To run a specific release instead of the latest `main`, append a tag: `npx github:pedromiranda96/conveyor#v0.1.0 sync`.
 
 ### `init`
 
-Copies the managed files into the project, exposes the skills to Claude Code through `.claude/skills`, and records the installed version and file list in `.conveyor/conveyor.json`. It then commits and tags that commit `conveyor/baseline`. If the folder is not a git repository yet, `init` creates one. The working tree must otherwise be clean.
+Copies the managed files into the project, exposes the skills to Claude Code through `.claude/skills`, and records the installed version and file list in `.conveyor/conveyor.json`. It then commits and tags that commit `conveyor/baseline`. The project must already be scaffolded (`init` refuses a folder without `package.json`). If the folder is not a git repository yet, `init` creates one. The working tree must otherwise be clean.
 
 ### `sync`
 

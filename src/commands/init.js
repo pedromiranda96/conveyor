@@ -8,7 +8,7 @@ export async function init({ root, force }) {
     throw new CliError("Conveyor is already set up here. Use `conveyor sync` to update it.");
   }
 
-  checkProject(root);
+  checkProject(root, { force });
 
   if (!repoRoot(root)) {
     log.step("Initializing a git repository");
