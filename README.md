@@ -17,7 +17,7 @@ pnpm astro add tailwind
 npx github:pedromiranda96/conveyor init
 ```
 
-We usually scaffold with Astro, but any framework works: the skills detect the stack from the project. Tailwind CSS is required; `init` warns when it is missing.
+We usually scaffold with Astro and Tailwind, but any framework works: the skills detect the stack from the project. Tailwind is preferred, not required. The agent uses it when installed, keeps a styling system the project already has, adds Tailwind when neither applies, and falls back to plain CSS only when Tailwind can't be used with the stack or you decline it.
 
 To run a specific release instead of the latest `main`, append a tag: `npx github:pedromiranda96/conveyor#v0.1.0 sync`.
 

@@ -18,7 +18,7 @@ Use `null` when no revision is fully applied. These fields summarize application
 
 ## Current state
 
-Summarize known pending brief/design changes by revision and affected section/token/rule IDs, approved placeholders, and incomplete integrations. Preserve unrelated pending work when updating this summary. A later partial design revision can leave `fully_applied_design_revision` at the previous baseline: record exactly which later changes are applied/pending in the entries.
+State the styling approach in use (Tailwind and its version, the project's established system, or plain CSS) and why the workflow's styling order selected it. Summarize known pending brief/design changes by revision and affected section/token/rule IDs, approved placeholders, and incomplete integrations. Preserve unrelated pending work when updating this summary. A later partial design revision can leave `fully_applied_design_revision` at the previous baseline: record exactly which later changes are applied/pending in the entries.
 
 ## Entries
 

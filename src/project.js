@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { lstat, mkdir, readdir, readlink, realpath, symlink, unlink } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { CliError, log } from "./log.js";
@@ -25,24 +25,12 @@ export function packageManager(root) {
 
 /** Checks project prerequisites without changing anything. */
 export function checkProject(root, { force }) {
-  let pkg;
-  try {
-    pkg = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
-  } catch {
-    const message =
-      "No readable package.json here. Scaffold the site first (for example `pnpm create astro@latest`), " +
-      "then run `conveyor init` from its root.";
-    if (!force) throw new CliError(`${message} Pass --force to continue anyway.`);
-    log.warn(message);
-    return;
-  }
-  const deps = { ...pkg.dependencies, ...pkg.devDependencies };
-  if (!deps.tailwindcss) {
-    log.warn(
-      "Tailwind CSS is not installed. Conveyor requires it; add it with your framework's official " +
-        "Tailwind integration, or conveyor-implement will add it during the initial build.",
-    );
-  }
+  if (existsSync(join(root, "package.json"))) return;
+  const message =
+    "No package.json here. Scaffold the site first (for example `pnpm create astro@latest`), " +
+    "then run `conveyor init` from its root.";
+  if (!force) throw new CliError(`${message} Pass --force to continue anyway.`);
+  log.warn(message);
 }
 
 async function lstatOrNull(path) {

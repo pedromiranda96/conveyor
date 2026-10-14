@@ -21,11 +21,10 @@ const ENV = {
 const dirs = [];
 after(() => dirs.forEach((dir) => rmSync(dir, { recursive: true, force: true })));
 
-function project({ tailwind = true, commit = true } = {}) {
+function project({ commit = true } = {}) {
   const dir = mkdtempSync(join(tmpdir(), "conveyor-test-"));
   dirs.push(dir);
-  const deps = tailwind ? { astro: "^5.0.0", tailwindcss: "^4.0.0" } : { astro: "^5.0.0" };
-  writeFileSync(join(dir, "package.json"), JSON.stringify({ name: "site", dependencies: deps }));
+  writeFileSync(join(dir, "package.json"), JSON.stringify({ name: "site", dependencies: { astro: "^5.0.0" } }));
   if (commit) {
     git(dir, "init", "-q");
     git(dir, "add", "-A");
@@ -72,13 +71,6 @@ describe("init", () => {
     assert.ok(!existsSync(join(dir, ".git")));
     assert.equal(run(dir, "init", "--force").status, 0);
     assert.ok(existsSync(join(dir, ".conveyor/workflow.md")));
-  });
-
-  test("warns when Tailwind is missing", () => {
-    const dir = project({ tailwind: false });
-    const result = run(dir, "init");
-    assert.equal(result.status, 0, result.stderr);
-    assert.match(result.stderr, /Tailwind CSS is not installed/);
   });
 
   test("refuses a dirty working tree and a second init", () => {

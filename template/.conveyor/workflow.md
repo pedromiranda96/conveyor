@@ -6,7 +6,14 @@ The `conveyor` CLI installs and updates the Conveyor skills, this file, and the 
 
 ## Stack
 
-Conveyor is framework-agnostic and runs in an already scaffolded project. Identify the framework, package manager, scripts, and conventions from the project, and follow its `AGENTS.md` and official documentation. Tailwind CSS is required in every stack (see Styling and revisions). If it is missing, implementation adds it through the framework's official integration; that is not a stack replacement.
+Conveyor is framework-agnostic and runs in an already scaffolded project. Identify the framework, package manager, scripts, and conventions from the project, and follow its `AGENTS.md` and official documentation. Choose the styling approach in this order:
+
+1. Use Tailwind CSS when the project already has it.
+2. Otherwise keep a styling system the project already establishes, such as CSS modules, CSS-in-JS, or an existing stylesheet architecture. Do not add a parallel one.
+3. Otherwise add Tailwind through the framework's official integration.
+4. Use plain CSS only when Tailwind has no official integration for the stack or the user declines it.
+
+A failed installation is not a reason to switch approaches: report it and ask. Implementation records the approach in use and why.
 
 ## Inputs and outputs
 
@@ -78,7 +85,11 @@ Implementation checks are limited to non-browser build, lint, type checks, sourc
 
 ## Styling and revisions
 
-Site styling uses Tailwind utilities and theme tokens. No handwritten component selectors, semantic styling classes such as `.hero-title`, or `@apply` abstractions. One-off UI uses utilities in its markup; repeated UI becomes a component file. Allow arbitrary utilities for genuinely one-off layout measurements; recurring values become tokens. Color and typography follow the design system. Keep authored CSS focused on Tailwind imports, tokens, and necessary font loading; Tailwind's generated utility CSS is expected.
+Design tokens are CSS custom properties and the single source of shared color, typography, spacing, and other values in every styling approach (see Stack). Color and typography follow the design system; recurring values become tokens. One-off UI stays local to its markup; repeated UI becomes a component file.
+
+- **Tailwind:** style with utilities and theme tokens. No handwritten component selectors, semantic styling classes such as `.hero-title`, or `@apply` abstractions. Allow arbitrary utilities for genuinely one-off layout measurements. Keep authored CSS focused on Tailwind imports, tokens, and necessary font loading; Tailwind's generated utility CSS is expected.
+- **Established project styling:** follow the project's conventions and map the design tokens into that system instead of adding a parallel one.
+- **Plain CSS:** declare tokens once as custom properties in a global stylesheet that otherwise holds only resets, base element styles, and font loading. Keep component styles beside their component using the stack's scoping mechanism, such as scoped component styles or CSS modules. Reference tokens instead of literal palette/type values. Do not write one large page stylesheet or a handwritten utility framework.
 
 An implementation request that changes a shared visual decision updates both site and design artifact. Local layout adjustments need not become global rules. A small tweak remains scoped even when the design contains broader unapplied changes: mention those changes instead of applying them silently.
 

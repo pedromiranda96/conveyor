@@ -15,8 +15,8 @@ Required fields:
 | `brand` | Supplied files/guides from `.conveyor/brand/`, variant/background roles, explicit constraints, inferred proposals, and relevant source identities; explicit empty inventory when absent |
 | `palette` | Color provenance/source paths, selection basis, named roles linked to color tokens, supporting additions, permitted combinations, and translation of reference color roles |
 | `reference_translation` | Feature-to-target mapping explaining what makes the source distinctive and which relationships are preserved, adapted, unavailable, or omitted, with reasons and fidelity expectations |
-| `tokens` | CSS-variable-name keys with `value`, `role`, and `utilities` (an array of intended Tailwind classes) |
-| `theme_policy` | Which Tailwind namespaces are extended/replaced, and which defaults remain allowed; explicit spacing scale/base |
+| `tokens` | CSS-variable-name keys with `value`, `role`, and, when the project uses Tailwind, `utilities` (an array of intended Tailwind classes) |
+| `theme_policy` | Explicit spacing scale/base; when the project uses Tailwind, which namespaces are extended/replaced and which defaults remain allowed |
 | `typography` | Role-to-token mappings, weights, line heights, tracking, line lengths, and responsive rules |
 | `fonts` | Families, roles, weights/styles, source and loading plan, usage terms where known, fallback stacks, and any unresolved acquisition |
 | `layout` | Container/gutter/section spacing rules, breakpoint values, alignment, and mobile transformations |
@@ -52,13 +52,15 @@ Give each color a role and link it to its literal token value. Document relevant
 
 Reuse an established selection without another approval gate. Older designs without `palette` remain readable through their tokens, recorded direction and source guidance; do not invent historical approval or force regeneration just to populate the new field.
 
-## Tokens and Tailwind
+## Tokens and styling
 
-Design for the project's installed Tailwind version; check its manifest/lockfile rather than assuming one. In v4, theme variables map to utilities through `@theme`, not a new legacy JavaScript configuration. Use proper namespaces such as `--color-*`, `--font-*`, `--text-*`, `--spacing-*`, `--container-*`, `--radius-*`, and `--shadow-*`. Include any `--text-…--line-height` companion values. Font loading declarations are separate from theme tokens.
+Tokens are CSS custom properties, the shared source for every styling approach in the workflow. Use Tailwind v4 theme namespaces such as `--color-*`, `--font-*`, `--text-*`, `--spacing-*`, `--container-*`, `--radius-*`, and `--shadow-*` even without Tailwind: they work as plain custom properties and keep the system portable. Include any `--text-…--line-height` companion values. Font loading declarations are separate from theme tokens.
 
-Give each token a literal CSS-compatible value and role. List multiple utilities where appropriate (one color can drive background, text, and border). Record the numeric spacing base if using numeric utilities. Replacing spacing should not accidentally remove every sizing utility. Reuse allowed defaults deliberately; do not reset all namespaces merely to demonstrate customization. Record permitted color alpha/state variants and font weight/size variants so review can distinguish approved derivations from drift.
+When the project uses Tailwind, design for its installed version; check the manifest/lockfile rather than assuming one. In v4, theme variables map to utilities through `@theme`, not a new legacy JavaScript configuration. When Tailwind is not installed yet, the workflow's styling order determines whether implementation adds it; keep the tokens valid either way.
 
-Document token companion line heights and any intentional overrides as a complete typography recipe. Utility recipes must not accidentally negate these values. Surface, shadow, and layering choices should express the reference/brand direction; do not impose a blanket ban on them when the selected reference depends on them.
+Give each token a literal CSS-compatible value and role. For Tailwind, list multiple utilities where appropriate (one color can drive background, text, and border). Record the numeric spacing base if using numeric utilities. Replacing spacing should not accidentally remove every sizing utility. Reuse allowed defaults deliberately; do not reset all namespaces merely to demonstrate customization. Record permitted color alpha/state variants and font weight/size variants so review can distinguish approved derivations from drift.
+
+Document token companion line heights and any intentional overrides as a complete typography recipe. Utility or component style recipes must not accidentally negate these values. Surface, shadow, and layering choices should express the reference/brand direction; do not impose a blanket ban on them when the selected reference depends on them.
 
 Source: [Tailwind theme variables](https://tailwindcss.com/docs/theme). Consult current documentation when implementing mappings for a different version.
 
@@ -70,4 +72,4 @@ For each included example, label what it demonstrates, which required rules it u
 
 Make the HTML viewable without a JavaScript framework, remote Tailwind runtime, or a separate build step. For this documentation artifact, token declarations in `:root` and inline styles consuming those tokens are acceptable; they are not application CSS. Avoid handwritten component classes here too. Either render specimen values from the embedded data or verify each against it; do not maintain contradictory token tables. External/local font and image dependencies must be declared and have understandable fallbacks. Use resolved paths from this nested HTML location, not assumed project-root browser paths.
 
-The actual site must use Tailwind utilities and the application styling policy. The documentation artifact's inline styles are not a shortcut for implementation.
+The actual site follows the workflow's styling policy for the project's styling approach. The documentation artifact's inline styles are not a shortcut for implementation.
