@@ -2,15 +2,7 @@ import { assertRepoRoot, isDirty } from "../git.js";
 import { CliError, log } from "../log.js";
 import { linkClaudeSkills } from "../project.js";
 import { applyTemplate, readState, templateSkills, VERSION, writeState } from "../template.js";
-
-function compareVersions(a, b) {
-  const pa = a.split(".").map(Number);
-  const pb = b.split(".").map(Number);
-  for (let i = 0; i < 3; i++) {
-    if ((pa[i] ?? 0) !== (pb[i] ?? 0)) return (pa[i] ?? 0) - (pb[i] ?? 0);
-  }
-  return 0;
-}
+import { compareVersions } from "../update.js";
 
 export async function sync({ root, force }) {
   const state = await readState(root);

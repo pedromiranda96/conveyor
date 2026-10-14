@@ -4,6 +4,7 @@ import { sync } from "./commands/sync.js";
 import { reset } from "./commands/reset.js";
 import { CliError, log } from "./log.js";
 import { VERSION } from "./template.js";
+import { checkForUpdate, updateCommand } from "./update.js";
 
 const HELP = `conveyor ${VERSION}
 
@@ -67,6 +68,7 @@ export async function main(argv) {
     return 1;
   }
 
+  const update = checkForUpdate();
   try {
     await command({
       root: process.cwd(),
@@ -81,5 +83,10 @@ export async function main(argv) {
       return 1;
     }
     throw error;
+  } finally {
+    const latest = await update;
+    if (latest) {
+      log.warn(`conveyor ${latest} is available (this is ${VERSION}). Run: ${updateCommand(latest, name)}`);
+    }
   }
 }

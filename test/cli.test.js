@@ -16,6 +16,7 @@ const ENV = {
   GIT_COMMITTER_NAME: "Test",
   GIT_COMMITTER_EMAIL: "test@example.com",
   NO_COLOR: "1",
+  CONVEYOR_NO_UPDATE_CHECK: "1",
 };
 
 const dirs = [];

@@ -14,12 +14,13 @@ Scaffold the site with the framework's own tool, then add Conveyor from the proj
 pnpm create astro@latest my-site
 cd my-site
 pnpm astro add tailwind
-npx github:pedromiranda96/conveyor init
+git add -A && git commit -m "add tailwind"
+pnpm dlx github:pedromiranda96/conveyor#v0.2.0 init
 ```
 
 We usually scaffold with Astro and Tailwind, but any framework works: the skills detect the stack from the project. Tailwind is preferred, not required. The agent uses it when installed, keeps a styling system the project already has, adds Tailwind when neither applies, and falls back to plain CSS only when Tailwind can't be used with the stack or you decline it.
 
-To run a specific release instead of the latest `main`, append a tag: `npx github:pedromiranda96/conveyor#v0.1.0 sync`.
+**Always include a release tag** (`#v0.2.0`). `pnpm dlx` and `npx` cache packages by the exact text you type, so a bare `github:pedromiranda96/conveyor` keeps reusing whatever copy was downloaded first. A new tag is new text, so it always downloads fresh. Each command checks GitHub for newer tags and prints the exact command to run when one exists. `npx` works the same way as `pnpm dlx`.
 
 ### `init`
 
@@ -45,4 +46,6 @@ Everything in [`template/`](template/) is copied into projects at the same path:
 
 Edit skills and workflow docs in `template/`. Run `npm test` to exercise the commands against temporary git repositories. To try a local checkout in a project, run `node /path/to/conveyor/bin/conveyor.js <command>` from that project's root.
 
-To release, bump `version` in `package.json`, commit, tag `vX.Y.Z`, and push with `--tags`.
+To release, bump `version` in `package.json`, commit, tag `vX.Y.Z`, and push with `--tags`. Tag every change meant for projects: untagged commits on `main` never reach users who follow the tag convention, and the version in `.conveyor/conveyor.json` only distinguishes releases if each one bumps it.
+
+Set `CONVEYOR_NO_UPDATE_CHECK=1` to skip the update check (the tests do).
