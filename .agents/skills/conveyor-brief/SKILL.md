@@ -13,6 +13,8 @@ Read the project's `.conveyor/workflow.md` and [brief contract](references/brief
 
 Read an existing brief before drafting. Accept information supplied by the user or another agent, but preserve provenance and uncertainties rather than treating an agent's assertions as verified facts. Reuse established language, audience, and business decisions unless the request changes them.
 
+Discover supplied materials in `.conveyor/brand/`, including optional `brand.md` or existing guides. Record actual canonical paths, logo variants, fonts, photos, explicit usage rules, and consequential gaps. Inspect relevant visuals; do not infer official colors from a logo without labeling that inference as a proposal. An incomplete or absent brand package does not block a useful brief. Keep this inventory separate from inspiration in `.conveyor/references/` and media selected/generated later. Do not reorganize or overwrite supplied originals.
+
 Identify the audience, primary visitor action, business offer, credible supporting information, and content needed to make that action understandable. Translate these into an ordered single-page outline; do not force an unrelated template's sections onto the business.
 
 Draft with labeled assumptions. Ask only about consequential gaps, such as an unclear business identity, contradictory service information, or an unknown destination for the primary contact action. Make useful independent progress while answers are pending. Optional missing details become open questions, not a mandatory intake questionnaire.

@@ -29,6 +29,8 @@ Describe one page at route `/`, with ordered sections. Give each a stable descri
 
 Separate factual copy from proposed messaging. List supplied logos/photos, missing assets, approved sourcing choice, source/usage information when known, and any content that must be confirmed before client delivery. A pitch may have placeholders; the artifact must identify them and their replacement requirements.
 
+Include a brand inventory from `.conveyor/brand/`: project-relative source paths, variants and intended backgrounds, font files/weights, guides or optional `brand.md`, and explicit constraints/provenance. Distinguish official supplied rules from inferred proposals. Brand source paths do not assume `src/assets/` or `public/`; deployment is implementation's concern. Do not duplicate entire guides. Future sourced/generated media uses `.conveyor/generated/media/`, not the supplied brand folder. Existing artifacts may retain older media paths until an explicit migration.
+
 ## Constraints and assumptions
 
 Business/brand requirements, interaction requirements, priorities, labeled assumptions with their impact, and unresolved questions. Distinguish a requirement from a suggestion. Cross-reference affected page/section IDs.
