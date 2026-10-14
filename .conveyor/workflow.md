@@ -1,6 +1,12 @@
 # Conveyor v1
 
-Conveyor produces a pitch-ready institutional site, then supports human-led refinement. V1 targets one page. Users invoke each stage and repeat the correction loop manually; CLI setup and orchestration are future work.
+Conveyor produces a pitch-ready institutional site, then supports human-led refinement. V1 targets one page. Users invoke each stage and repeat the correction loop manually; orchestration is future work.
+
+The `conveyor` CLI installs and updates the Conveyor skills, this file, and the `.conveyor/` READMEs. `conveyor sync` replaces them, so put project-specific instructions in the project's `AGENTS.md`, not in managed files.
+
+## Stack
+
+Conveyor is framework-agnostic. Identify the framework, package manager, scripts, and conventions from the project, and follow its `AGENTS.md` and official documentation. New projects default to Astro; the brief records the stack and any reason for another choice. Tailwind CSS is required in every stack (see Styling and revisions). If it is missing, implementation adds it through the framework's official integration; that is not a stack replacement.
 
 ## Inputs and outputs
 

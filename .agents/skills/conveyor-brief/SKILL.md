@@ -17,6 +17,8 @@ Discover supplied materials in `.conveyor/brand/`, including optional `brand.md`
 
 Identify the audience, primary visitor action, business offer, credible supporting information, and content needed to make that action understandable. Translate these into an ordered single-page outline; do not force an unrelated template's sections onto the business.
 
+Record the site stack. When the project is already scaffolded, detect and record its framework. Otherwise recommend Astro unless a stated requirement calls for another stack, and record that reason. Tailwind CSS is required regardless of framework.
+
 Draft with labeled assumptions. Ask only about consequential gaps, such as an unclear business identity, contradictory service information, or an unknown destination for the primary contact action. Make useful independent progress while answers are pending. Optional missing details become open questions, not a mandatory intake questionnaire.
 
 Do not research the business unless the user requests research. A business name, URL, or Instagram handle alone is not that request. When research is requested, use available tools, cite the actual sources and access date, and report access limitations or conflicting information. Do not infer private profile content from snippets or manufacture facts when a source is inaccessible.

@@ -54,7 +54,7 @@ Reuse an established selection without another approval gate. Older designs with
 
 ## Tokens and Tailwind
 
-Design for the project's installed Tailwind version. This starter uses v4: theme variables map to utilities through `@theme`, not a new legacy JavaScript configuration. Use proper namespaces such as `--color-*`, `--font-*`, `--text-*`, `--spacing-*`, `--container-*`, `--radius-*`, and `--shadow-*`. Include any `--text-…--line-height` companion values. Font loading declarations are separate from theme tokens.
+Design for the project's installed Tailwind version; check its manifest/lockfile rather than assuming one. In v4, theme variables map to utilities through `@theme`, not a new legacy JavaScript configuration. Use proper namespaces such as `--color-*`, `--font-*`, `--text-*`, `--spacing-*`, `--container-*`, `--radius-*`, and `--shadow-*`. Include any `--text-…--line-height` companion values. Font loading declarations are separate from theme tokens.
 
 Give each token a literal CSS-compatible value and role. List multiple utilities where appropriate (one color can drive background, text, and border). Record the numeric spacing base if using numeric utilities. Replacing spacing should not accidentally remove every sizing utility. Reuse allowed defaults deliberately; do not reset all namespaces merely to demonstrate customization. Record permitted color alpha/state variants and font weight/size variants so review can distinguish approved derivations from drift.
 

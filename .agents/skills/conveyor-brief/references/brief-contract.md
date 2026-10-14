@@ -31,6 +31,10 @@ Separate factual copy from proposed messaging. List supplied logos/photos, missi
 
 Include a brand inventory from `.conveyor/brand/`: project-relative source paths, variants and intended backgrounds, font files/weights, guides or optional `brand.md`, and explicit constraints/provenance. Distinguish official supplied rules from inferred proposals. Brand source paths do not assume `src/assets/` or `public/`; deployment is implementation's concern. Do not duplicate entire guides. Future sourced/generated media uses `.conveyor/generated/media/`, not the supplied brand folder. Existing artifacts may retain older media paths until an explicit migration.
 
+## Stack
+
+Framework and styling: the detected framework of an already scaffolded project, or the recommended one when none exists yet. Astro is the default for new projects; any other choice states the requirement behind it, such as an existing codebase or application features. Tailwind CSS is always required. Mark the stack as detected, recommended, or user-specified. Older briefs without this section remain valid; the project's actual stack applies.
+
 ## Constraints and assumptions
 
 Business/brand requirements, interaction requirements, priorities, labeled assumptions with their impact, and unresolved questions. Distinguish a requirement from a suggestion. Cross-reference affected page/section IDs.

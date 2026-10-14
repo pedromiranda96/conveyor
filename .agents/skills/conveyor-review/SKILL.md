@@ -23,7 +23,7 @@ Read the brief, design JSON/rules/specimens, current `.conveyor/brand/` material
 
 Discover tools actually available. Prefer browser automation capable of navigation, computed-style inspection, interaction, and screenshots. Use computer use for visual/interaction evidence when available, without claiming computed-style checks it cannot perform. Do not install tools silently. If neither is available, perform source review, mark browser checks unverified, and recommend a concrete available route or setup for finishing them.
 
-Use a provided running URL or discover/start the local server according to the project's stack and `AGENTS.md` (this Astro starter uses `astro dev --background`; manage with status/logs/stop). Do not start a server for source-only review, stop a server you did not start, or bypass project instructions. Inspect source/configuration independently even when a browser is available.
+Use a provided running URL or discover/start the local server according to the project's stack and `AGENTS.md`, using any background mode or server management commands they define. Do not start a server for source-only review, stop a server you did not start, or bypass project instructions. Inspect source/configuration independently even when a browser is available.
 
 Check by default:
 
