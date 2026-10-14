@@ -1,0 +1,4 @@
+interface:
+  display_name: "Conveyor Brief"
+  short_description: "Turn business details into a reusable website brief"
+  default_prompt: "Use $conveyor-brief to create or revise this project's website brief from the business information I provide."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Conveyor Implement"
+  short_description: "Build, tweak, or fix a site using Conveyor artifacts"
+  default_prompt: "Use $conveyor-implement to implement my requested change using this project's brief, design system, and current code."

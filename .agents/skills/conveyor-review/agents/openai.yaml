@@ -1,0 +1,4 @@
+interface:
+  display_name: "Conveyor Review"
+  short_description: "Independently check a site and record review findings"
+  default_prompt: "Use $conveyor-review to independently review this project against its brief and design system, recording findings and coverage."

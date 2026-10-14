@@ -8,6 +8,17 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Conveyor workflow
+
+For institutional site work, use the project skills in `.agents/skills/`:
+
+- `conveyor-brief`: business requirements and page content.
+- `conveyor-design`: visual direction, tokens, and HTML design artifact.
+- `conveyor-implement`: initial site code, targeted tweaks, and review fixes.
+- `conveyor-review`: independent inspection and review artifacts.
+
+Read `.conveyor/workflow.md` for shared rules and artifact paths. Invoke stages and correction loops only within the user's requested scope. Generated artifacts belong in `.conveyor/generated/`; reference inputs belong in `.conveyor/references/`.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build
