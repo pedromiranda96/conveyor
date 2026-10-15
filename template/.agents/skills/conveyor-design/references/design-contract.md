@@ -21,7 +21,7 @@ Required fields:
 | `fonts` | Families, roles, weights/styles, source and loading plan, usage terms where known, fallback stacks, and any unresolved acquisition |
 | `layout` | Container/gutter/section spacing rules, breakpoint values, alignment, and mobile transformations |
 | `components` | Stable IDs with relevant token/utility recipes, variants, interaction states, and responsive rules; distinguish required behavior from illustrative composition |
-| `pages` | One page with route `/`; sections ordered by stable brief IDs, purpose, content/asset bindings, required composition relationships, guidance, and responsive behavior; no rendered page preview required |
+| `pages` | The user-approved site structure: one or more pages with routes, purpose, content/asset bindings to stable brief IDs, required composition relationships, guidance, and responsive behavior; include navigation relationships when multiple pages require them; no rendered page preview required |
 | `assets` | Canonical source paths or explicit missing values, HTML-preview-relative paths, roles/variants, supplied/placeholder/stock/generated provenance, source/usage information, and replacement needs; no assumed deployment folder |
 | `rules` | Stable rule IDs, `required` or `advisory`, target, instruction, and measurable expectation where applicable |
 | `exceptions` | User-authorized deviations with scope/reason; empty by default |

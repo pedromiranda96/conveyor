@@ -9,6 +9,10 @@ Own the visual contract at `.conveyor/generated/design/design-system.html`. The 
 
 Read `.conveyor/workflow.md`, the brief, an existing design artifact, and [design contract](references/design-contract.md). Discover current `.conveyor/brand/` materials and optional guidance, inspect relevant logos/variants, and reconcile them with the brief's inventory. Respect explicit brand rules; inferred palette values remain proposals. Read the installed `frontend-design/SKILL.md` for judgment about subject-specific direction, typography, composition, and restraint. Locate it among project skills; if unavailable, disclose that and use its principles as expressed in the brief rather than installing a dependency silently.
 
+## Establish site structure
+
+Before visual direction, establish whether the site has one page or multiple pages. Honor an explicit user decision in the request, brief, or existing design; do not ask again when it is already settled. Otherwise, use the brief to recommend a structure and ask the user to choose or revise it. For a multi-page site, establish each page's route and purpose and any required navigation relationships before finalizing the design. Do not assume a page count or route. Record the accepted structure in the design artifact's `pages` field; do not modify the business brief to store this design decision.
+
 ## Interpret references
 
 Discover actual image files in `.conveyor/references/` (including nested directories), ignoring README/hidden metadata. Inspect the images with available image-reading tools; filenames alone are not visual evidence. Report corrupt or unsupported images rather than counting them as inspected. Do not fetch business facts or replacement references without a request.

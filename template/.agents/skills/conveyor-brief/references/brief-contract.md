@@ -21,9 +21,9 @@ Name, business description, services, location/address, service regions, hours, 
 
 Primary audience, their need, primary action, secondary actions if relevant, language/locale, and positioning grounded in the offer. Mark inferred choices as assumptions. Identify the exact destination and behavior of the primary action, or flag it as a consequential unknown.
 
-## Page plan
+## Content requirements
 
-Describe one page at route `/`, with ordered sections. Give each a stable descriptive ID, purpose, required content, proposed copy, relevant asset, and CTA behavior where applicable. Use a page-level grouping so more pages can be added later, without designing multi-page behavior in v1. Do not make all businesses use the same section count or structure.
+Describe the content needed to serve the audience and primary action without assigning it to pages or routes. Give each requirement a stable descriptive ID, audience need, purpose, required information, proposed copy where useful, relevant asset, and CTA behavior where applicable. Prioritize requirements when useful, but do not prescribe a page count, route, or universal section structure. Site structure is decided during design.
 
 ## Content and assets
 
@@ -33,7 +33,7 @@ Include a brand inventory from `.conveyor/brand/`: project-relative source paths
 
 ## Constraints and assumptions
 
-Business/brand requirements, interaction requirements, priorities, labeled assumptions with their impact, and unresolved questions. Distinguish a requirement from a suggestion. Cross-reference affected page/section IDs.
+Business/brand requirements, interaction requirements, priorities, labeled assumptions with their impact, and unresolved questions. Distinguish a requirement from a suggestion. Cross-reference affected content requirement IDs.
 
 ## Revision notes
 

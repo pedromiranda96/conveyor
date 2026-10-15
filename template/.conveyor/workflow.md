@@ -1,6 +1,6 @@
 # Conveyor v1
 
-Conveyor produces a pitch-ready institutional site, then supports human-led refinement. V1 targets one page. Users invoke each stage and repeat the correction loop manually; orchestration is future work.
+Conveyor produces a pitch-ready institutional site, then supports human-led refinement. Users invoke each stage and repeat the correction loop manually; orchestration is future work.
 
 The `conveyor` CLI installs and updates the Conveyor skills, this file, and the `.conveyor/` READMEs. `conveyor sync` replaces them, so put project-specific instructions in the project's `AGENTS.md`, not in managed files.
 
@@ -66,7 +66,7 @@ Typical requests:
 
 - `$conveyor-brief` — turn supplied business information into a website brief.
 - `$conveyor-design` — establish or revise the visual direction from the brief and references.
-- `$conveyor-implement` — build the page, make a targeted tweak, apply a changed design, or fix a specified review.
+- `$conveyor-implement` — build the site, make a targeted tweak, apply a changed design, or fix a specified review.
 - `$conveyor-review` — independently inspect the current implementation, optionally rechecking a previous review.
 
 Invoking a stage does not automatically invoke subsequent stages, launch a correction loop, or publish the site. Explicitly requested combinations of briefing/design/implementation can run within scope. **Implementation must NEVER invoke or delegate review**, including when a request combines implementation with review. Complete implementation and its technical checks, then return a handoff; the user invokes review as a separate step. Implementation cannot switch roles to review, launch a review subagent, schedule a review, or write review reports on its own work.

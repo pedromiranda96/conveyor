@@ -1,6 +1,6 @@
 ---
 name: conveyor-brief
-description: Create or revise Conveyor's business and website brief from supplied information. Use for project intake, content planning, or changes to audience, services, goals, and single-page site structure.
+description: Create or revise Conveyor's business and website brief from supplied information. Use for project intake, content planning, or changes to audience, services, goals, and content requirements.
 ---
 
 # Conveyor Brief
@@ -15,7 +15,7 @@ Read an existing brief before drafting. Accept information supplied by the user 
 
 Discover supplied materials in `.conveyor/brand/`, including optional `brand.md` or existing guides. Record actual canonical paths, logo variants, fonts, photos, explicit usage rules, and consequential gaps. Inspect relevant visuals; do not infer official colors from a logo without labeling that inference as a proposal. An incomplete or absent brand package does not block a useful brief. Keep this inventory separate from inspiration in `.conveyor/references/` and media selected/generated later. Do not reorganize or overwrite supplied originals.
 
-Identify the audience, primary visitor action, business offer, credible supporting information, and content needed to make that action understandable. Translate these into an ordered single-page outline; do not force an unrelated template's sections onto the business.
+Identify the audience, primary visitor action, business offer, credible supporting information, and content needed to make that action understandable. Record content requirements without assigning them to pages or routes; site structure is decided during design. Do not force an unrelated template's sections onto the business.
 Draft with labeled assumptions. Ask only about consequential gaps, such as an unclear business identity, contradictory service information, or an unknown destination for the primary contact action. Make useful independent progress while answers are pending. Optional missing details become open questions, not a mandatory intake questionnaire.
 
 Do not research the business unless the user requests research. A business name, URL, or Instagram handle alone is not that request. When research is requested, use available tools, cite the actual sources and access date, and report access limitations or conflicting information. Do not infer private profile content from snippets or manufacture facts when a source is inaccessible.

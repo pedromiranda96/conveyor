@@ -19,10 +19,10 @@ Read `AGENTS.md`, `.conveyor/workflow.md`, the brief, embedded design JSON/docum
 
 ## Choose scope
 
-- **Initial build:** create the one-page site from the brief/design, including real visitor actions. If either artifact is missing or consequentially incomplete, identify the missing input rather than inventing a replacement workflow. Work on independent parts while awaiting necessary answers.
+- **Initial build:** create the site from the brief and the user-approved structure in the design, including real visitor actions. If either artifact is missing or consequentially incomplete, identify the missing input rather than inventing a replacement workflow. Work on independent parts while awaiting necessary answers.
 - **Small tweak:** change the requested area and preserve surrounding code, composition, and accepted refinements. Existing source is part of the project context, not something to regenerate wholesale. Missing optional artifacts need not prevent a clearly specified local fix.
 - **Review fixes:** read the review selected by path/ID or unambiguous request context. If multiple reviews could be meant, ask which; do not guess. Address all required findings by default, or the user's explicit subset. Advisory findings need a request. Confirm findings against current code before changing it: a stale review may describe a problem already fixed.
-- **Apply design revision:** reconcile the requested design changes with the existing site while preserving refinements outside their scope. Do not treat every new artifact revision as permission to rebuild the whole page.
+- **Apply design revision:** reconcile the requested design changes with the existing site while preserving refinements outside their scope. Do not treat every new artifact revision as permission to rebuild the entire site.
 
 For a small tweak with broader unapplied design changes, make the tweak and mention the remaining changes. For a requested shared visual change, update design JSON, documentation, relevant included examples, change notes, and revision together with the site; do not create a missing page specimen merely to synchronize the artifact. Read the design contract when doing this. Do not mark that entire revision applied if other parts remain pending. Local composition adjustments need not become shared tokens or rules. A request changing business facts also needs the corresponding brief correction, with provenance; do not silently establish a new business claim.
 
