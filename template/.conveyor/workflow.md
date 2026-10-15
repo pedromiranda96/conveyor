@@ -28,11 +28,13 @@ All paths are relative to the project root, not the shell's current directory.
 
 Reference images are inputs, never generated artifacts. Ignore README files and unsupported files when discovering images. Create output directories on demand. Keep generated artifacts in version control: they carry decisions and history. Do not create empty artifacts or fabricate a business to run a stage.
 
+Each stage writes only its own outputs. Brief owns `brief.md`; design owns the design artifact and its supporting examples/evidence; implementation owns site code and `implementation.md`; review owns its new report/evidence. Stages may read other artifacts but must not modify them, increment their revisions, or silently invoke their owning skill. Record any needed upstream correction in the current stage's output and hand it off. Authorized media acquisition/preparation follows the shared media policy, with provenance recorded in the acquiring stage's own output.
+
 ## Brand and media sources
 
 - `.conveyor/brand/` is the stack-independent source for supplied logos, symbols, fonts, photos, and guidelines. Its [README](brand/README.md) explains usage; `brand.md` is optional. A single logo is enough to start. Discover and inspect actual files instead of treating an old brief's missing-asset inventory as current.
 - Preserve supplied originals. Record logo variants and intended backgrounds, font sources/weights, and explicit brand rules. Colors inferred from a logo are proposals, not official palette values. Specific user instructions take precedence; resolve consequential ambiguity between brand rules and requested reference treatment.
-- `.conveyor/generated/media/` stores newly sourced, generated, or explicitly prepared media variants, with provenance recorded in the design artifact. Framework build outputs remain in their normal locations. Reference inspection crops belong in `.conveyor/generated/design/inspection/` and are evidence, not site imagery.
+- `.conveyor/generated/media/` stores newly sourced, generated, or explicitly prepared media variants, with provenance recorded in the acquiring stage's own artifact. Framework build outputs remain in their normal locations. Reference inspection crops belong in `.conveyor/generated/design/inspection/` and are evidence, not site imagery.
 - Brief/design use project-relative canonical source paths. Implementation chooses stack-appropriate imports or deployment locations and records source-to-destination mappings. Neither `src/assets/` nor `public/` is a universal Conveyor input/output contract. Do not overwrite brand originals or require copies to already exist in the application's folders.
 - Existing projects may reference media in older locations such as `.conveyor/generated/design/assets/`. Read those paths as recorded. Updating the workflow does not automatically migrate files, regenerate existing artifacts, or change a site.
 
@@ -46,7 +48,7 @@ Treat multiple views of one design as one palette, accounting for surfaces/state
 
 Map selected colors to the references' visual roles: text/background pairs, actions, accents, contrasting surfaces, borders, and decorative details. Preserve hierarchy and surface differentiation instead of replacing every reference panel with the same tint. When supplied colors do not cover necessary roles, clearly propose supporting neutrals/shades and permitted combinations; do not label those additions official brand colors. Respect explicit restrictions, and resolve a consequential addition outside their scope before using it.
 
-The design artifact records palette provenance, selection basis, named role/token mappings, supporting additions, permitted combinations, and reference-role translation. Implementation consumes that decision rather than selecting another palette; review checks both its provenance and actual application.
+The design artifact records palette provenance, selection basis, named role/token mappings, supporting additions, permitted combinations, and reference-role translation. Implementation consumes that decision together with later explicit user adjustments recorded in `implementation.md`, rather than selecting another palette on its own; review checks both provenance and actual application.
 
 ## Reference fidelity
 
@@ -66,8 +68,12 @@ Typical requests:
 
 - `$conveyor-brief` — turn supplied business information into a website brief.
 - `$conveyor-design` — establish or revise the visual direction from the brief and references.
-- `$conveyor-implement` — build the site, make a targeted tweak, apply a changed design, or fix a specified review.
+- `$conveyor-implement` — build the site, add or reorganize pages, make a targeted tweak, apply a changed design, or fix a specified review.
 - `$conveyor-review` — independently inspect the current implementation, optionally rechecking a previous review.
+
+The initial brief → design → implement sequence establishes a reusable foundation. Design provides visual direction, patterns, and composition principles. Implementation builds the scope requested by the user, including individual pages, routes, sections, and components within that direction. For example, `$conveyor-implement implement the landing page` can be followed later by `$conveyor-implement implement the contact page`; the second request is optional and does not require repeating brief or design. Invoke design again when reconsidering the visual direction.
+
+Implementation determines the routes, content placement, and navigation needed for the requested scope, honoring explicit user choices and the existing site. Record what was built and what remains pending in `implementation.md`; do not expand an individual-page request into building the rest of the site. Preserve applicable visual requirements when content moves. Ask only when a consequential ambiguity affects the requested work.
 
 Invoking a stage does not automatically invoke subsequent stages, launch a correction loop, or publish the site. Explicitly requested combinations of briefing/design/implementation can run within scope. **Implementation must NEVER invoke or delegate review**, including when a request combines implementation with review. Complete implementation and its technical checks, then return a handoff; the user invokes review as a separate step. Implementation cannot switch roles to review, launch a review subagent, schedule a review, or write review reports on its own work.
 
@@ -91,9 +97,11 @@ Design tokens are CSS custom properties and the single source of shared color, t
 - **Established project styling:** follow the project's conventions and map the design tokens into that system instead of adding a parallel one.
 - **Plain CSS:** declare tokens once as custom properties in a global stylesheet that otherwise holds only resets, base element styles, and font loading. Keep component styles beside their component using the stack's scoping mechanism, such as scoped component styles or CSS modules. Reference tokens instead of literal palette/type values. Do not write one large page stylesheet or a handwritten utility framework.
 
-An implementation request that changes a shared visual decision updates both site and design artifact. Local layout adjustments need not become global rules. A small tweak remains scoped even when the design contains broader unapplied changes: mention those changes instead of applying them silently.
+Implementation handles concrete user-requested visual tweaks, including shared changes such as a specified button color, without requiring another design invocation. Record the request, exact adjustment, scope, and any superseded design decision in `implementation.md`; leave the design artifact unchanged. Within their recorded scope, later explicit user adjustments take precedence over older artifact values. Carry them into subsequent implementation and review unless the user or a later design revision explicitly supersedes them. Ordinary layout/component refinements within the direction need only the implementation entry; do not label an agent's discretionary change as user-approved.
 
-Implementation can refine composition, cropping, responsive behavior, and finish within the established visual direction. Required tokens/rules, explicit user decisions, and requested reference relationships remain binding; illustrative arrangements do not. Keep original references available instead of treating an intermediate page example as their replacement. Shared decision changes still update the design artifact; improvements within its stated freedom need only the implementation record.
+Design establishes or reconsiders the visual direction and, when next invoked, incorporates relevant accepted adjustments into its own artifact while preserving unrelated decisions. An implementation request requiring exploration of a new direction, or missing business/content decisions, needs a specific handoff to design or brief. Continue independent work within scope. A small tweak remains scoped even when the design contains broader unapplied changes: mention those changes instead of applying them silently.
+
+Implementation can refine composition, cropping, responsive behavior, and finish within the established visual direction. Required tokens/rules, explicit user decisions, and requested reference relationships remain binding; illustrative arrangements do not. Keep original references available instead of treating an intermediate page example as their replacement. Improvements within the direction's stated freedom need only the implementation record.
 
 Use monotonically increasing project-local IDs: `B001` for brief revisions, `D001` for design revisions, `I001` for implementation entries, and `R001` for reviews. Increment the highest existing ID; do not reuse an ID after deletion or overwrite a previous review. Findings are referenced as `R001/F001`. Artifact contracts live beside the skills. Record partial design application honestly; a small tweak must not mark an entire new design revision applied.
 

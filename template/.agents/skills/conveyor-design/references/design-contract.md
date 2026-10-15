@@ -21,7 +21,6 @@ Required fields:
 | `fonts` | Families, roles, weights/styles, source and loading plan, usage terms where known, fallback stacks, and any unresolved acquisition |
 | `layout` | Container/gutter/section spacing rules, breakpoint values, alignment, and mobile transformations |
 | `components` | Stable IDs with relevant token/utility recipes, variants, interaction states, and responsive rules; distinguish required behavior from illustrative composition |
-| `pages` | The user-approved site structure: one or more pages with routes, purpose, content/asset bindings to stable brief IDs, required composition relationships, guidance, and responsive behavior; include navigation relationships when multiple pages require them; no rendered page preview required |
 | `assets` | Canonical source paths or explicit missing values, HTML-preview-relative paths, roles/variants, supplied/placeholder/stock/generated provenance, source/usage information, and replacement needs; no assumed deployment folder |
 | `rules` | Stable rule IDs, `required` or `advisory`, target, instruction, and measurable expectation where applicable |
 | `exceptions` | User-authorized deviations with scope/reason; empty by default |
@@ -32,7 +31,9 @@ Use strings, arrays, and objects for these structures; include explicit units fo
 
 An optional `examples` array describes included component/page samples: stable ID, kind (`component` or `page`), purpose, referenced required-rule IDs, illustrative aspects, and viewport dimensions when relevant. A page screenshot/mockup or a particular sample arrangement does not create additional rules. Existing explicit user-approved composition requirements remain binding; do not erase them or reclassify them solely because previews are now optional.
 
-These additions extend schema version 1. Consumers must read earlier artifacts without manufacturing absent information or forcing regeneration; infer what can be established from their sources and report unresolved coverage. Include the new fields when next creating or materially revising a design.
+These changes remain within schema version 1. Consumers must read earlier artifacts without manufacturing absent information or forcing regeneration; infer what can be established from their sources and report unresolved coverage. Include required fields when next creating or materially revising a design; optional fields remain optional.
+
+Earlier artifacts may contain `pages`. Consumers should retain applicable visual requirements from that guidance without treating the list as implementation scope. New artifacts express reusable composition guidance through `layout`, `components`, `reference_translation`, and `rules`.
 
 ## Reference and brand translation
 
@@ -66,7 +67,7 @@ Source: [Tailwind theme variables](https://tailwindcss.com/docs/theme). Consult 
 
 ## Human-readable documentation and examples
 
-Show required foundations, visual intent, reference relationships, color/type/spacing specimens, relevant isolated component examples/states, and the ordered content outline with composition guidance. Include selected font weights and any declared placeholders. Full-page, header/hero, and representative-section specimens are optional; include them only to resolve a meaningful question, not as a routine deliverable.
+Show required foundations, visual intent, reference relationships, color/type/spacing specimens, relevant isolated component examples/states, and reusable composition patterns grounded in the brief's content. Explain how patterns adapt to different content needs. Include selected font weights and any declared placeholders. Full-page, header/hero, and representative-section specimens are optional; include them only to resolve a meaningful question, not as a routine deliverable.
 
 For each included example, label what it demonstrates, which required rules it uses, and what implementation can vary. A focused collage/product-media example can explain a relationship without dictating an entire section. Identify sample viewport dimensions when relevant. Keep original references available and include a compact source-to-design comparison explaining preservation and brand/content adaptations. Provenance belongs in the artifact; add visitor-facing notices only when required or needed to avoid misleading users. Do not use repetitive internal disclaimers as design content.
 

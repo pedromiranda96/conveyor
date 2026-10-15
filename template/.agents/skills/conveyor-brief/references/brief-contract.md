@@ -23,7 +23,7 @@ Primary audience, their need, primary action, secondary actions if relevant, lan
 
 ## Content requirements
 
-Describe the content needed to serve the audience and primary action without assigning it to pages or routes. Give each requirement a stable descriptive ID, audience need, purpose, required information, proposed copy where useful, relevant asset, and CTA behavior where applicable. Prioritize requirements when useful, but do not prescribe a page count, route, or universal section structure. Site structure is decided during design.
+Describe the content needed to serve the audience and primary action independently of pages or routes. Give each requirement a stable descriptive ID, audience need, purpose, required information, proposed copy where useful, relevant asset, and CTA behavior where applicable. Prioritize requirements when useful, but do not prescribe a page count, route, or universal section structure. Preserve explicit user constraints as such; implementation determines and evolves the structure without revising the brief when business/content requirements stay the same.
 
 ## Content and assets
 
