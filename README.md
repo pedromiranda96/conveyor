@@ -15,12 +15,12 @@ pnpm create astro@latest my-site
 cd my-site
 pnpm astro add tailwind
 git add -A && git commit -m "add tailwind"
-pnpm dlx github:pedromiranda96/conveyor#v0.3.0 init
+pnpm dlx github:pedromiranda96/conveyor#v0.4.0 init
 ```
 
 We usually scaffold with Astro and Tailwind, but any framework works: the skills detect the stack from the project. Tailwind is preferred, not required. The agent uses it when installed, keeps a styling system the project already has, adds Tailwind when neither applies, and falls back to plain CSS only when Tailwind can't be used with the stack or you decline it.
 
-**Always include a release tag** (`#v0.3.0`). `pnpm dlx` and `npx` cache packages by the exact text you type, so a bare `github:pedromiranda96/conveyor` keeps reusing whatever copy was downloaded first. A new tag is new text, so it always downloads fresh. Each command checks GitHub for newer tags and prints the exact command to run when one exists. `npx` works the same way as `pnpm dlx`.
+**Always include a release tag** (`#v0.4.0`). `pnpm dlx` and `npx` cache packages by the exact text you type, so a bare `github:pedromiranda96/conveyor` keeps reusing whatever copy was downloaded first. A new tag is new text, so it always downloads fresh. Each command checks GitHub for newer tags and prints the exact command to run when one exists. `npx` works the same way as `pnpm dlx`.
 
 ### `init`
 
