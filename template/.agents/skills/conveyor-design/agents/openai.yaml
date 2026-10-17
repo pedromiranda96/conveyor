@@ -1,4 +1,4 @@
 interface:
   display_name: "Conveyor Design"
   short_description: "Define a visual system from the brief and references"
-  default_prompt: "Use $conveyor-design to create or revise the HTML design system from this project's brief and reference images."
+  default_prompt: "Use $conveyor-design to create or revise design.json from this project's brief and reference images."

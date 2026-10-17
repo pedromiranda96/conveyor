@@ -22,13 +22,15 @@ All paths are relative to the project root, not the shell's current directory.
 | Stage | Inputs | Output |
 | --- | --- | --- |
 | `conveyor-brief` | Business information and `.conveyor/brand/`; research only when requested | `.conveyor/generated/brief.md` |
-| `conveyor-design` | Brief, brand materials, reference views, existing design | `.conveyor/generated/design/design-system.html`; selected/generated media |
+| `conveyor-design` | Brief, brand materials, reference views, existing design | `.conveyor/generated/design/design.json`; selected/generated media |
 | `conveyor-implement` | Brief, design, canonical brand/media files, existing site; selected review | Site code; `.conveyor/generated/implementation.md` |
 | `conveyor-review` | Brief, brand materials, original references, design, current site; optional previous review | `.conveyor/generated/reviews/<REVIEW_ID>.md` |
 
 Reference images are inputs, never generated artifacts. Ignore README files and unsupported files when discovering images. Create output directories on demand. Keep generated artifacts in version control: they carry decisions and history. Do not create empty artifacts or fabricate a business to run a stage.
 
-Each stage writes only its own outputs. Brief owns `brief.md`; design owns the design artifact and its supporting examples/evidence; implementation owns site code and `implementation.md`; review owns its new report/evidence. Stages may read other artifacts but must not modify them, increment their revisions, or silently invoke their owning skill. Record any needed upstream correction in the current stage's output and hand it off. Authorized media acquisition/preparation follows the shared media policy, with provenance recorded in the acquiring stage's own output.
+Each stage writes only its own outputs. Brief owns `brief.md`; design owns `design.json` and its supporting evidence; implementation owns site code and `implementation.md`; review owns its new report/evidence. Stages may read other artifacts but must not modify them, increment their revisions, or silently invoke their owning skill. Record any needed upstream correction in the current stage's output and hand it off. Authorized media acquisition/preparation follows the shared media policy, with provenance recorded in the acquiring stage's own output.
+
+The design baseline is `.conveyor/generated/design/design.json`. Only when that file is absent, read the legacy `.conveyor/generated/design/design-system.html` and its embedded JSON (`script#conveyor-design`). If JSON exists, it is authoritative; report invalid JSON rather than silently using an older HTML baseline. Sync and downstream stages leave generated artifacts unchanged. On the next requested design revision, design writes JSON while preserving applicable decisions and history; older HTML remains historical context.
 
 ## Brand and media sources
 
@@ -58,9 +60,7 @@ For a tall screenshot, check original dimensions and inspect original-resolution
 
 Design must explain which relationships make the reference distinctive: visual hierarchy, scale, density, media composition, layering, surfaces, and section rhythm. Translate these to the business and brand, recording what is preserved, adapted, unavailable, or intentionally omitted. Unsupported business claims can be omitted while their visual role is replaced with truthful, well-composed content. Generic text panels are not a universal substitute for missing photography or product imagery.
 
-The design artifact contains required foundations, visual intent, reference relationships, composition guidance, and useful isolated component examples. Page specimens, screenshots, and mockups are optional: include one only when it resolves a meaningful design question. There is no mandatory header/hero or representative-section preview. Mark each example's purpose, any existing rules it demonstrates, and aspects left illustrative. An example cannot create a requirement merely by showing a particular arrangement.
-
-Inspect examples that are included against their stated purpose and original references when tools are available. When no page specimen is included, review the design contract against the references and later verify the implemented site's composition; absence of that optional specimen is not a failure or missing coverage by itself. If a relevant included sample or actual site cannot be inspected, record missing coverage and a concrete route to finish it. Build/JSON validation alone does not establish visual fidelity.
+The design JSON contains required foundations, visual intent, reference relationships, composition guidance, and component recipes. Distinguish required rules from advisory guidance and illustrative arrangements. Review the documented relationships against the references and verify the implemented site's composition during independent review. An illustrative arrangement cannot create a requirement merely by being documented. If relevant reference details or the actual site cannot be inspected, record missing coverage and a concrete route to finish it. Build/JSON validation alone does not establish visual fidelity.
 
 ## Manual handoffs
 
@@ -79,7 +79,7 @@ Invoking a stage does not automatically invoke subsequent stages, launch a corre
 
 A separately user-invoked review can delegate one inspection to a fresh-context reviewer; that is review's responsibility, not implementation's. If the calling chat contains implementation history, it serves only as the dispatcher and relays the fresh worker's report. Without fresh-context delegation, review must run in another chat/context.
 
-Implementation checks are limited to non-browser build, lint, type checks, source inspection, and relevant non-browser tests, recorded in `implementation.md`. Implementation must not launch/control browsers, use browser automation/MCP or computer use, capture site screenshots, query computed styles, test interactions, run browser-backed tests (including headless tools through scripts/terminal), or delegate those inspections. Renaming them self-checks or QA is not an exception. Reading supplied reference/brand images and documentation remains allowed. Rendered-site verification belongs to the separately invoked independent reviewer; design may still inspect its own design documentation/examples within its stage.
+Implementation checks are limited to non-browser build, lint, type checks, source inspection, and relevant non-browser tests, recorded in `implementation.md`. Implementation must not launch/control browsers, use browser automation/MCP or computer use, capture site screenshots, query computed styles, test interactions, run browser-backed tests (including headless tools through scripts/terminal), or delegate those inspections. Renaming them self-checks or QA is not an exception. Reading supplied reference/brand images and documentation remains allowed. Rendered-site verification belongs to the separately invoked independent reviewer.
 
 ## Shared decisions
 

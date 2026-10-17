@@ -31,7 +31,7 @@ Include the relevant canonical brand guides/files, original reference views and 
 
 List checks, tool/method, tested viewport/state, and result: verified, failed, or unverified. Include relevant checks not possible with the available tools. Separate source evidence from rendered evidence. Give a concrete way to finish missing coverage, without pretending an unavailable tool was used.
 
-Record source-reference/brand-to-design coverage separately from design-to-site coverage. If there are no references by prior authorization, state that the reference comparison is not applicable. When no optional page specimen exists, compare the documented relationships with references and inspect the implemented site; absence of the specimen alone is neither a defect nor a coverage gap. If relevant reference details, an included example, or the actual site cannot be inspected, state what remains unverified. Included examples are assessed for their declared purpose, not as universal page blueprints. Do not require fields added to the contract after an older artifact was created, or imply reference fidelity passed merely because implementation uses the correct tokens.
+Record source-reference/brand-to-design coverage separately from design-to-site coverage. If there are no references by prior authorization, state that the reference comparison is not applicable. Compare the documented relationships with references and inspect the implemented site. If relevant reference details or the actual site cannot be inspected, state what remains unverified. Do not require fields added to the contract after an older artifact was created, or imply reference fidelity passed merely because implementation uses the correct tokens.
 
 ## Findings
 
