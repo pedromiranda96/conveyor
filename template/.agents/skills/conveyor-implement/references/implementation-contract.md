@@ -2,7 +2,7 @@
 
 Path: `.conveyor/generated/implementation.md`. Preserve prior entries; this is a change record, not a conversation transcript.
 
-Implementation writes this record and site code; brief, design, and review artifacts are read-only inputs. It may consume an existing independent review but must never invoke/delegate `conveyor-review`, create or modify `.conveyor/generated/reviews/`, or issue a review verdict. It also must not perform browser automation, screenshots, rendered inspection, interaction testing, or browser-backed tests under another name. A combined implementation/review request ends with an implementation handoff; the user invokes review separately in an independent context.
+Implementation writes this record and site code; brief, design, and review artifacts are read-only inputs. It may consume an existing independent review but must never invoke/delegate `conveyor-review`, create or modify `.conveyor/generated/reviews/`, or issue a review verdict. Any rendered working inspection it performs is not verification and is not recorded as evidence. A combined implementation/review request ends with an implementation handoff; the user invokes review separately in an independent context.
 
 Start with YAML frontmatter:
 
@@ -38,7 +38,7 @@ Each entry has a unique `I…` heading and:
 - Asset mappings for files used/changed: canonical `.conveyor/brand/` or generated-media source, stack-specific destination/import, variant/background role, and transformation if any. For unchanged legacy locations record the actual path, not a fictional migration. Relevant source digests can establish freshness without a new brand revision scheme.
 - Triggering review path/ID and affected `R…/F…` references, or explicitly none.
 - Per-finding disposition: addressed-and-verified, changed-but-unverified, already-resolved (with evidence), or unresolved (with reason). Advisory findings changed only by request.
-- Non-browser technical checks performed, command/tool and result. Rendered desktop/mobile behavior, computed styles, interactions, and visual acceptance remain pending independent review; do not record implementation-owned browser viewports or screenshots. References to evidence in an existing independent report must be identified as that report's evidence, not a new implementation check.
+- Non-browser technical checks performed, command/tool and result. Rendered desktop/mobile behavior, computed styles, interactions, and visual acceptance remain pending independent review even when implementation viewed the site while working; do not record working-inspection viewports, screenshots, or observations as checks. Rendered problems noticed but left unfixed belong under remaining issues; never record that something looked correct. References to evidence in an existing independent report must be identified as that report's evidence, not a new implementation check.
 - Remaining issues, unapplied changes, or decisions needing the user.
 
 For review fixes, identify each finding's owning stage. Findings requiring a missing brief decision or new design choice remain unresolved with a specific handoff; do not silently choose a new direction or claim those findings fixed by changing code alone.

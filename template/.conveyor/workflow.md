@@ -79,7 +79,7 @@ Invoking a stage does not automatically invoke subsequent stages, launch a corre
 
 A separately user-invoked review can delegate one inspection to a fresh-context reviewer; that is review's responsibility, not implementation's. If the calling chat contains implementation history, it serves only as the dispatcher and relays the fresh worker's report. Without fresh-context delegation, review must run in another chat/context.
 
-Implementation checks are limited to non-browser build, lint, type checks, source inspection, and relevant non-browser tests, recorded in `implementation.md`. Implementation must not launch/control browsers, use browser automation/MCP or computer use, capture site screenshots, query computed styles, test interactions, run browser-backed tests (including headless tools through scripts/terminal), or delegate those inspections. Renaming them self-checks or QA is not an exception. Reading supplied reference/brand images and documentation remains allowed. Rendered-site verification belongs to the separately invoked independent reviewer; design may still inspect its own design documentation/examples within its stage.
+Implementation checks are limited to non-browser build, lint, type checks, source inspection, and relevant non-browser tests, recorded in `implementation.md`. Implementation may view the rendered site while building, as working inspection scoped to its own changes; it cannot delegate that inspection, run review's checks on its own work, or treat anything it observes there as evidence. Rendered-site verification belongs to the separately invoked independent reviewer; design may still inspect its own design documentation/examples within its stage.
 
 ## Shared decisions
 
