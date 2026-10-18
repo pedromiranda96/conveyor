@@ -1,6 +1,6 @@
 ---
 name: conveyor-implement
-description: Build or extend a Conveyor site using its established design direction, with non-browser technical checks only. Use for initial implementation, new pages, structure changes, scoped tweaks, design revisions, or existing review fixes; never invokes review or performs browser-based inspection.
+description: Build or extend a Conveyor site using its established design direction. Use for initial implementation, new pages, structure changes, scoped tweaks, design revisions, or existing review fixes; never invokes review or treats its own rendered inspection as verification.
 ---
 
 # Conveyor Implement
@@ -15,7 +15,7 @@ Treat brief and design as read-only inputs. Write site code and the implementati
 
 You may read existing independent review artifacts as fix inputs. You must not create or modify files in `.conveyor/generated/reviews/`, issue an independent review verdict, or declare review findings independently closed. Review is a separate user-invoked stage conducted in a different context or by a fresh-context reviewer agent.
 
-**No browser-based self-checks.** Do not launch/control a browser, use browser automation/MCP or computer use to inspect the implemented site, capture screenshots, query computed styles, exercise interactions, compare rendered layouts, or run browser-backed tests. This includes Playwright/Puppeteer/headless tools invoked through scripts or the terminal and inspection delegated to another agent. Calling it "verification", "QA", or "my own check" does not change the boundary. The allowed implementation checks are non-browser build, lint, type checks, source inspection, and relevant non-browser tests. Reading supplied reference/brand images and documentation remains allowed; it is not permission to inspect the rendered site.
+**Looking is allowed; judging is not.** When rendering helps you build, debug, or confirm that a change you just made renders as intended, you may view the site with available tools, scoped to the areas this request touches. This is working inspection, not verification. Do not delegate it to another agent, sweep pages or viewports beyond your change, or run review's checks on your own work. Nothing you observe in the rendered site counts as evidence, including results of browser-backed tests: record only non-browser build, lint, type checks, source inspection, and non-browser tests as verification, keep visual and interaction findings changed-but-unverified, and never write review artifacts or declare findings closed. You may note problems you saw but left unfixed; do not record that something looked correct.
 
 Read `AGENTS.md`, `.conveyor/workflow.md`, the brief, `.conveyor/generated/design/design.json`, current code, and the existing implementation record. Use the workflow's legacy HTML fallback only when JSON is absent; do not migrate or rewrite design inputs. Read [implementation contract](references/implementation-contract.md). Discover current canonical brand files, optional guidance, and design-bound media/reference views; stale inventory does not establish that a newly supplied logo is absent. Identify the actual stack from the project; consult its relevant official guides and documentation required by `AGENTS.md`. Determine the styling approach by the workflow's order, checking the installed Tailwind version and integration when present, and record the approach and reason. Do not replace the stack or an established styling system without a request.
 
@@ -37,7 +37,7 @@ Use review ownership to distinguish code defects from upstream brief/design deci
 
 ## Implement
 
-Read the installed `frontend-design` skill to guide coding decisions about hierarchy, spacing, responsive rules, copy, and restraint against the existing direction. Do not follow its browser/screenshot self-critique procedures during implementation; this skill's stricter boundary applies. Do not use it to invent a competing design or impose a new aesthetic approval step.
+Read the installed `frontend-design` skill to guide coding decisions about hierarchy, spacing, responsive rules, copy, and restraint against the existing direction. Its screenshot self-critique is working inspection under this skill's boundary: it informs the build, not the implementation record. Do not use it to invent a competing design or impose a new aesthetic approval step.
 
 Preserve the design's source-to-target relationships and purposeful media treatments, not merely its token list. Inspect the reference views for the areas being implemented. Do not replace a specified collage, image treatment, or interface composition with generic text panels just because that is easier to code; follow the existing asset-choice policy when a required source is missing.
 
@@ -55,7 +55,7 @@ Respect font loading, responsive transformations, keyboard focus, reduced motion
 
 ## Verify and record
 
-Run existing non-browser checks appropriate to the change; for an initial build or theme/component changes, verify the production build. Inspect check commands/configuration before running ambiguous test scripts so browser-backed tests are not started inadvertently. Leave desktop/mobile rendering, computed styles, screenshots, interaction testing, and visual acceptance to independent review. Record checks actually performed and their results, including limits; do not claim rendered behavior or visual quality passed from source/build evidence. These are technical implementation checks, not a formal review artifact or an independent verdict.
+Run existing non-browser checks appropriate to the change; for an initial build or theme/component changes, verify the production build. Inspect check commands/configuration before running ambiguous test scripts so you know which results count as non-browser verification. Leave rendered verification and visual acceptance to independent review. Record checks actually performed and their results, including limits; do not claim rendered behavior or visual quality passed from source, build, or working-inspection evidence. These are technical implementation checks, not a formal review artifact or an independent verdict.
 
 When a server is needed, follow the project's `AGENTS.md` and stack commands. When they define a background mode or server management commands, use them; do not replace a required background mode with a foreground command or `&`. Use the project's package-manager command wrapper when needed.
 
