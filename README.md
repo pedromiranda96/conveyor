@@ -1,6 +1,6 @@
 # Conveyor
 
-Conveyor is an agent workflow for producing pitch-ready institutional sites: brief → design → implement → review. This repository is the `conveyor` CLI, which installs the workflow's skills and `.conveyor/` folder into a web project and keeps them up to date.
+Conveyor is an agent workflow for producing pitch-ready institutional sites: brief → design → media → implement → review. This repository is the `conveyor` CLI, which installs the workflow's skills and `.conveyor/` folder into a web project and keeps them up to date.
 
 ## Access
 
@@ -32,15 +32,15 @@ Replaces the managed files with the CLI's current copies and deletes managed fil
 
 ### `reset`
 
-Restores the project to `conveyor/baseline`: brand files, references, generated artifacts, and site changes are all removed. The reset is a new commit, so earlier work stays in git history. It asks for confirmation (`--yes` skips it) and reinstalls dependencies if they changed (`--no-install` skips that). The files restored are the ones from `init`; run `sync` afterwards to get the latest skills.
+Restores the project to `conveyor/baseline`: brand files, supplied media, references, generated artifacts, and site changes are all removed. The reset is a new commit, so earlier work stays in git history. It asks for confirmation (`--yes` skips it) and reinstalls dependencies if they changed (`--no-install` skips that). The files restored are the ones from `init`; run `sync` afterwards to get the latest skills.
 
 ## Managed files
 
 Everything in [`template/`](template/) is copied into projects at the same path:
 
-- `.agents/skills/`: the `conveyor-brief`, `conveyor-design`, `conveyor-implement`, and `conveyor-review` skills, plus `frontend-design`, vendored from [anthropics/skills](https://github.com/anthropics/skills) under its Apache 2.0 license.
+- `.agents/skills/`: the `conveyor-brief`, `conveyor-design`, `conveyor-media`, `conveyor-implement`, and `conveyor-review` skills, plus `frontend-design`, vendored from [anthropics/skills](https://github.com/anthropics/skills) under its Apache 2.0 license.
 - `.conveyor/workflow.md`: shared rules every skill reads.
-- `.conveyor/brand/README.md` and `.conveyor/references/README.md`: instructions for supplying brand files and design references.
+- `.conveyor/brand/README.md`, `.conveyor/media/README.md`, and `.conveyor/references/README.md`: instructions for supplying brand files, images you already have, and design references.
 
 ## Development
 

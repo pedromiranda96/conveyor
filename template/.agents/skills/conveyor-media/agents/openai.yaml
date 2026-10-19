@@ -1,0 +1,4 @@
+interface:
+  display_name: "Conveyor Media"
+  short_description: "Fill the design's image slots with art-directed media"
+  default_prompt: "Use $conveyor-media to fill this project's design image slots from supplied media, stock briefs, or generation, recording provenance."

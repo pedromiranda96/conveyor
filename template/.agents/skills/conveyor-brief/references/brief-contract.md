@@ -38,9 +38,9 @@ Describe the content needed to serve the audience and primary action independent
 
 ## Content and assets
 
-Separate factual copy from proposed messaging. List supplied logos/photos, missing assets, approved sourcing choice, source/usage information when known, and any content that must be confirmed before client delivery. A pitch may have placeholders; the artifact must identify them and their replacement requirements.
+Separate factual copy from proposed messaging. List any content that must be confirmed before client delivery, and declared placeholders with their replacement requirements.
 
-Include a brand inventory from `.conveyor/brand/`: project-relative source paths, variants and intended backgrounds, font files/weights, guides or optional `brand.md`, and explicit constraints/provenance. Distinguish official supplied rules from inferred proposals. Brand source paths do not assume `src/assets/` or `public/`; deployment is implementation's concern. Do not duplicate entire guides. Future sourced/generated media uses `.conveyor/generated/media/`, not the supplied brand folder. Existing artifacts may retain older media paths until an explicit migration.
+Include an inventory of `.conveyor/brand/` and `.conveyor/media/`: project-relative source paths; logo variants and intended backgrounds; font files/weights; images with what each is known to show, whether it depicts the actual business, and its source/license or approval when known; guides or notes files; and explicit constraints with provenance. Distinguish official supplied rules from inferred proposals. Do not duplicate entire guides. Note consequential missing imagery and any imagery choice the user has stated, with its scope.
 
 ## Constraints and assumptions
 

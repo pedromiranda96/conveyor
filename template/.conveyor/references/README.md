@@ -22,4 +22,4 @@ Reference colors are not adopted automatically. Design reuses your established p
 
 If there are no usable reference images, the agent will ask whether to proceed without them. If you agree, it will propose multiple directions for you to choose from.
 
-Put your own logos, fonts, photos, and brand guidance in `.conveyor/brand/`. Generated artifacts go in `.conveyor/generated/`; inspection crops may be saved under `.conveyor/generated/design/inspection/`, while deployable generated/selected media belongs in `.conveyor/generated/media/`. Keep original reference inputs here.
+Put your own logos, fonts, and brand guidance in `.conveyor/brand/`, and images you already have in `.conveyor/media/`. Generated artifacts go in `.conveyor/generated/`; inspection crops may be saved under `.conveyor/generated/design/inspection/`, while prepared site imagery belongs in `.conveyor/generated/media/`. Keep original reference inputs here.
