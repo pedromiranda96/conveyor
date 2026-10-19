@@ -89,6 +89,17 @@ Implementation checks are limited to non-browser build, lint, type checks, sourc
 - When suitable business imagery is missing, ask whether to use placeholders, source stock, or generate imagery. Reuse an existing choice within its scope. Record source, usage terms, and whether an image is stock/generated; do not present it as a real business photo. Keep acquisition details and internal uncertainties in artifacts. Include visitor-facing credits/disclosures when required or needed to avoid a misleading claim, without turning every visual into a workflow disclaimer. Proposed copy is allowed; unsupported factual claims are not.
 - Use `frontend-design` for design judgment, primarily during design. During implementation use it to critique fidelity and quality; preserve the chosen direction and accepted refinements. Conveyor's explicit requirements take precedence over generic design advice.
 
+## Copy and messaging
+
+Copy carries much of a pitch's persuasion. Its direction is decided once in the brief; its wording lives in the site.
+
+- The brief owns messaging: a positioning line, voice rules, vocabulary (action labels and terms to use or avoid), the key message each content requirement must land, and which recorded facts copy may state. It may offer headline and action candidates, but it is not a copy deck for the whole site.
+- The site owns wording. Implementation writes final copy against the messaging, using `frontend-design`'s writing guidance. Text already on the site is authoritative, whoever wrote it: do not restore brief candidates over it or rewrite copy outside the requested scope.
+- A wording change needs no brief invocation and at most an implementation entry. A change to a messaging decision, such as a renamed primary action or a different key message, is an explicit user adjustment: record it in `implementation.md` with its scope so later pages follow it. Record any new factual claim with its provenance; never invent one to strengthen copy.
+- When brief is next invoked, it incorporates active messaging adjustments into its own messaging and lists them in its revision notes. A brief revision supersedes an adjustment only when it says so explicitly; otherwise the adjustment stays in effect.
+- Review checks copy against the messaging and active adjustments. A missing key message, inconsistent action labels, unsupported claims, and leftover placeholder or template filler are required findings; wording that could be sharper is advisory.
+- Briefs written before the messaging section existed remain valid. Derive voice from their positioning and proposed copy; the missing section is not a defect.
+
 ## Styling and revisions
 
 Design tokens are CSS custom properties and the single source of shared color, typography, spacing, and other values in every styling approach (see Stack). Color and typography follow the design system; recurring values become tokens. One-off UI stays local to its markup; repeated UI becomes a component file.

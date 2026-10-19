@@ -24,7 +24,7 @@ State the styling approach in use (Tailwind and its version, the project's estab
 
 Summarize implemented scope and relevant pending work. A scoped page delivery does not mean every brief requirement has been implemented; distinguish content outside the request from incomplete work inside it. Entries record affected pages/routes and navigation as part of describing actual changes, without requiring a separate site plan or full route inventory.
 
-Keep a concise list of active explicit user adjustments to the design, linked to their implementation entries: request/provenance, exact values or behavior, local/shared scope, and the older tokens/rules they supersede. Distinguish accepted-and-applied adjustments from requested but unfinished work and agent-derived refinements. Update this summary when an adjustment is superseded or incorporated into a later design revision, preserving historical entries. Subsequent implementation and review consume this list alongside the design artifact; do not invent user approval or treat an implementation success claim as review evidence.
+Keep a concise list of active explicit user adjustments to the design or the brief's messaging, linked to their implementation entries: request/provenance, exact values, behavior, or wording decision, local/shared scope, and the older tokens/rules or messaging decisions they supersede. Distinguish accepted-and-applied adjustments from requested but unfinished work and agent-derived refinements. Update this summary when an adjustment is superseded or incorporated into a later design or brief revision, preserving historical entries. Subsequent implementation and review consume this list alongside the design artifact; do not invent user approval or treat an implementation success claim as review evidence.
 
 ## Entries
 
@@ -32,7 +32,8 @@ Each entry has a unique `I…` heading and:
 
 - Timestamp with timezone; request and scope: initial, extend/reorganize, tweak, review-fixes, or design-revision.
 - Brief/design revisions read; decisions actually applied; any upstream correction needed, with its owning stage. Do not modify upstream artifacts.
-- Explicit user adjustments applied, their request/provenance, exact result and scope, and superseded design decisions; distinguish these from refinements within existing guidance.
+- Explicit user adjustments applied, their request/provenance, exact result and scope, and superseded design or messaging decisions; distinguish these from refinements within existing guidance.
+- New factual claims introduced in copy, with their provenance. Plain wording changes need only their location under changed files.
 - Changed files and behavior, with enough location detail for a reviewer to find the work.
 - For structure changes, affected routes, navigation, and content placement, including how applicable visual requirements carry over. New pages/components within the established direction need no new design revision.
 - Asset mappings for files used/changed: canonical `.conveyor/brand/` or generated-media source, stack-specific destination/import, variant/background role, and transformation if any. For unchanged legacy locations record the actual path, not a fictional migration. Relevant source digests can establish freshness without a new brand revision scheme.

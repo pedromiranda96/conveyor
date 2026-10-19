@@ -21,9 +21,20 @@ Name, business description, services, location/address, service regions, hours, 
 
 Primary audience, their need, primary action, secondary actions if relevant, language/locale, and positioning grounded in the offer. Mark inferred choices as assumptions. Identify the exact destination and behavior of the primary action, or flag it as a consequential unknown.
 
+## Messaging
+
+Direction for the site's copy, not the copy itself; keep it short enough to apply on every page.
+
+- Positioning line: one visitor-facing sentence saying what the business is and why it is the right choice, grounded in the business facts and audience positioning.
+- Voice: three or four rules, each with a short do/don't pair written for this business.
+- Vocabulary: the exact label for each primary and secondary action, plus terms to use or avoid.
+- Claims: the recorded facts copy may state, by reference to their provenance above. Copy states nothing beyond them.
+
+Key messages belong to the content requirements below.
+
 ## Content requirements
 
-Describe the content needed to serve the audience and primary action independently of pages or routes. Give each requirement a stable descriptive ID, audience need, purpose, required information, proposed copy where useful, relevant asset, and CTA behavior where applicable. Prioritize requirements when useful, but do not prescribe a page count, route, or universal section structure. Preserve explicit user constraints as such; implementation determines and evolves the structure without revising the brief when business/content requirements stay the same.
+Describe the content needed to serve the audience and primary action independently of pages or routes. Give each requirement a stable descriptive ID, audience need, purpose, required information, the key message it must land, headline or action candidates where useful, relevant asset, and CTA behavior where applicable. Prioritize requirements when useful, but do not prescribe a page count, route, or universal section structure. Preserve explicit user constraints as such; implementation determines and evolves the structure without revising the brief when business/content requirements stay the same.
 
 ## Content and assets
 
@@ -37,4 +48,4 @@ Business/brand requirements, interaction requirements, priorities, labeled assum
 
 ## Revision notes
 
-Keep concise entries for materially changed revisions: revision ID, request, changed requirements, and downstream impact. Preserve provenance and accepted decisions during updates. Do not imply that design or code has already incorporated a brief revision.
+Keep concise entries for materially changed revisions: revision ID, request, changed requirements, messaging adjustments incorporated from the implementation record (by entry ID), and downstream impact. Preserve provenance and accepted decisions during updates. Do not imply that design or code has already incorporated a brief revision.
